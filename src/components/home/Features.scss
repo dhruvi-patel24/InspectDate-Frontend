@@ -1,0 +1,100 @@
+@import '../../styles/variables.scss';
+@import '../../styles/responsive.scss';
+
+// ============================================
+// Features Section Styles
+// ============================================
+
+.features-section {
+	padding: 4rem 0;
+	background-color: $gray-50;
+
+	@media (min-width: 1024px) {
+		padding: 6rem 0;
+	}
+}
+
+.feature-card {
+	text-align: center;
+	padding: 2rem 1.5rem;
+	background-color: $white;
+	border-radius: 0.75rem;
+	transition: all 0.3s ease;
+	height: 100%;
+	border: 1px solid transparent;
+
+	&:hover {
+		transform: translateY(-8px);
+		box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+		border-color: $accent;
+	}
+
+	.feature-icon {
+		width: 80px;
+		height: 80px;
+		margin: 0 auto 1.5rem;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: 50%;
+		background: linear-gradient(135deg, rgba($accent, 0.1) 0%, rgba($accent, 0.05) 100%);
+		color: $accent;
+		transition: all 0.3s ease;
+
+		svg {
+				stroke-width: 1.5;
+		}
+	}
+
+	&:hover .feature-icon {
+		background: linear-gradient(135deg, $accent 0%, $accent-hover 100%);
+		color: $white;
+		transform: scale(1.1);
+	}
+
+	.feature-title {
+		font-size: 0.875rem;
+		font-weight: 700;
+		color: $primary;
+		margin-bottom: 1rem;
+		letter-spacing: 0.5px;
+		text-transform: uppercase;
+	}
+
+	.feature-description {
+		font-size: 0.9375rem;
+		line-height: 1.6;
+		color: $gray-600;
+		margin-bottom: 0;
+	}
+}
+
+// Responsive adjustments
+@media (max-width: 767px) {
+	.features-section {
+		padding: 3rem 0;
+	}
+
+	.feature-card {
+		padding: 1.5rem 1rem;
+
+		.feature-icon {
+			width: 60px;
+			height: 60px;
+			margin-bottom: 1rem;
+
+			svg {
+				width: 30px;
+				height: 30px;
+			}
+		}
+
+		.feature-title {
+			font-size: 0.8125rem;
+		}
+
+		.feature-description {
+			font-size: 0.875rem;
+		}
+	}
+}
