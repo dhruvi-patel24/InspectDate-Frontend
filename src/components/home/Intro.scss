@@ -6,21 +6,29 @@
 // ============================================
 
 .intro-section-1 {
-  padding: 4rem 0 6rem;
+  @include section-padding;
+  padding-top: 4rem;
+  padding-bottom: 6rem;
   background: linear-gradient(to bottom, $gray-50 0%, $white 100%);
 
   @media (min-width: 1024px) {
-    padding: 6rem 0 8rem;
+    padding-top: 6rem;
+    padding-bottom: 8rem;
   }
 }
+
 .intro-section-2 {
-  padding: 4rem 0 6rem;
+  @include section-padding;
+  padding-top: 4rem;
+  padding-bottom: 6rem;
   background: linear-gradient(to bottom, $gray-50 0%, $white 100%);
 
   @media (min-width: 1024px) {
-    padding: 6rem 0 8rem;
+    padding-top: 6rem;
+    padding-bottom: 8rem;
   }
 }
+
 // Animations
 @keyframes float {
 
