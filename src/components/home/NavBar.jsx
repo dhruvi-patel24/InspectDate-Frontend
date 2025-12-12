@@ -39,64 +39,65 @@ function NavBar() {
           <span className="brand-text">
             Inspect<span className="brand-accent">Date</span>
           </span>
-          <Navbar.Collapse id="navbar-nav">
-            {/* Center Navigation */}
-            <Nav className="mx-auto">
-              <Nav.Link
-                onClick={() => handleNavClick("/#features")}
-                className="nav-item-link"
-              >
-                Features
-              </Nav.Link>
-              <Nav.Link
-                onClick={() => handleNavClick("/#how-it-works")}
-                className="nav-item-link"
-              >
-                How It Works
-              </Nav.Link>
-              <Nav.Link
-                onClick={() => handleNavClick("/#pricing")}
-                className="nav-item-link"
-              >
-                Pricing
-              </Nav.Link>
-              <Nav.Link
-                onClick={() => handleNavClick("/#reviews")}
-                className="nav-item-link"
-              >
-                Reviews
-              </Nav.Link>
-              <Nav.Link
-                onClick={() => handleNavClick("/#contact")}
-                className="nav-item-link"
-              >
-                Contact
-              </Nav.Link>
-
-              {/* Right Side Auth Buttons */}
-              <span className="d-flex align-items-center gap-3">
-                <Button
-                  variant="link"
-                  onClick={() => handleNavClick(ROUTES.sign_in)}
-                  className="sign-in-btn"
-                >
-                  Sign In
-                </Button>
-                <Button
-                  variant="dark"
-                  onClick={() => handleNavClick("/signup")}
-                  className="get-started-btn"
-                >
-                  Get Started
-                </Button>
-              </span>
-            </Nav>
-
-
-          </Navbar.Collapse>
         </Navbar.Brand>
+        <Navbar.Toggle aria-controls="navbar-nav" />
+        <Navbar.Collapse id="navbar-nav">
+          {/* Center Navigation */}
+          <Nav className="mx-auto">
+            <Nav.Link
+              onClick={() => handleNavClick("/#features")}
+              className="nav-item-link"
+            >
+              Features
+            </Nav.Link>
+            <Nav.Link
+              onClick={() => handleNavClick("/#how-it-works")}
+              className="nav-item-link"
+            >
+              How It Works
+            </Nav.Link>
+            <Nav.Link
+              onClick={() => handleNavClick("/#pricing")}
+              className="nav-item-link"
+            >
+              Pricing
+            </Nav.Link>
+            <Nav.Link
+              onClick={() => handleNavClick("/#reviews")}
+              className="nav-item-link"
+            >
+              Reviews
+            </Nav.Link>
+            <Nav.Link
+              onClick={() => handleNavClick("/#contact")}
+              className="nav-item-link"
+            >
+              Contact
+            </Nav.Link>
+
+            {/* Right Side Auth Buttons */}
+            <span className="d-flex align-items-center gap-3">
+              <Button
+                variant="link"
+                onClick={() => handleNavClick(ROUTES.sign_in)}
+                className="sign-in-btn"
+              >
+                Sign In
+              </Button>
+              <Button
+                variant="dark"
+                onClick={() => handleNavClick("/signup")}
+                className="get-started-btn"
+              >
+                Get Started
+              </Button>
+            </span>
+          </Nav>
+
+
+        </Navbar.Collapse>
       </Container>
-    </Navbar>
+    </Navbar >
   );
 };
 
