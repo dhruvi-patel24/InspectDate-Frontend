@@ -14,10 +14,12 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background-image: url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=2070&auto=format&fit=crop');
+      // Use a construction-themed placeholder image
+      background-image: url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=2531&auto=format&fit=crop');
       background-size: cover;
       background-position: center;
       opacity: 0.4;
+      z-index: 0;
     }
 
     .hero-overlay {
@@ -26,28 +28,30 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: linear-gradient(
-        to bottom,
-        rgba($gray-900, 0.8),
-        rgba($gray-900, 0.9)
-      );
-    }
-
-    .hero-content {
-      z-index: 2;
+      background: linear-gradient(135deg, rgba($primary, 0.9) 0%, rgba($primary, 0.7) 100%);
+      z-index: 1;
     }
 
     .logo-icon-large {
+      width: 80px;
+      height: 80px;
+      border-radius: 16px;
+      background-color: rgba($white, 0.1);
+      backdrop-filter: blur(10px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
       color: $accent;
+      border: 1px solid rgba($white, 0.2);
     }
 
     .feature-badge {
-      background: rgba($white, 0.1);
-      backdrop-filter: blur(10px);
+      background-color: rgba($white, 0.1);
+      backdrop-filter: blur(5px);
       padding: 0.5rem 1rem;
-      border-radius: 2rem;
-      color: $white;
+      border-radius: 50px;
       font-size: 0.9rem;
+      color: $white;
       border: 1px solid rgba($white, 0.2);
       display: flex;
       align-items: center;
@@ -61,15 +65,47 @@
   }
 
   .sign-in-form-wrapper {
-    width: 100%;
-    max-width: 550px;
+
+    // Animation
+    &.animate-fade-in-up {
+      animation: fadeInUp 0.6s ease-out forwards;
+      opacity: 0;
+    }
 
     .brand-logo {
       .logo-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        border-radius: 6px;
+        background-color: $primary;
+        color: $white;
+
+        svg {
+          width: 20px;
+          height: 20px;
+        }
+      }
+
+      .brand-text {
         color: $primary;
       }
     }
 
+    h2 {
+      color: $primary;
+    }
+
+    .form-label {
+      font-weight: 500;
+      color: $gray-700;
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+    }
+
+    // Input Group with Icon
     .input-group-icon {
       position: relative;
 
@@ -79,19 +115,8 @@
         top: 50%;
         transform: translateY(-50%);
         z-index: 5;
+        color: $gray-400;
         pointer-events: none;
-      }
-
-      .form-control {
-        padding-left: 3rem;
-        border-color: $gray-200;
-        padding-top: 0.75rem;
-        padding-bottom: 0.75rem;
-
-        &:focus {
-          border-color: $accent;
-          box-shadow: 0 0 0 4px rgba($accent, 0.1);
-        }
       }
 
       .password-toggle {
@@ -99,12 +124,68 @@
         right: 1rem;
         top: 50%;
         transform: translateY(-50%);
-        cursor: pointer;
         z-index: 5;
+        cursor: pointer;
+        color: $gray-400;
 
         &:hover {
-          opacity: 0.8;
+          color: $gray-600;
         }
+      }
+    }
+
+    .form-control {
+      padding: 0.75rem 1rem;
+      border-color: $gray-300;
+      border-radius: 0.5rem;
+      font-size: 0.95rem;
+      transition: all 0.2s ease;
+      background-color: $gray-50;
+
+      &:focus {
+        background-color: $white;
+        border-color: $primary;
+        box-shadow: 0 0 0 4px rgba($primary, 0.1);
+      }
+
+      &::placeholder {
+        color: $gray-400;
+      }
+    }
+
+    .form-check-input {
+      cursor: pointer;
+      width: 1.1em;
+      height: 1.1em;
+      margin-top: 0.15em;
+
+      &:checked {
+        background-color: $primary;
+        border-color: $primary;
+      }
+
+      &:focus {
+        box-shadow: 0 0 0 4px rgba($primary, 0.1);
+      }
+    }
+
+    .form-check-label {
+      color: $gray-600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      padding-left: 0.2rem;
+    }
+
+    .forgot-password-link,
+    .sign-up-link {
+      color: $primary;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: $accent;
+        text-decoration: none;
       }
     }
 
@@ -112,40 +193,34 @@
       background-color: $primary;
       border-color: $primary;
       font-weight: 600;
-      transition: all 0.2s;
+      font-size: 1rem;
+      transition: all 0.2s ease;
+      border-radius: 0.5rem;
+      height: 48px;
 
       &:hover {
         background-color: $primary-hover;
         border-color: $primary-hover;
         transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba($primary, 0.2);
       }
 
-      &:disabled {
-        background-color: $gray-400;
-        border-color: $gray-400;
-        cursor: not-allowed;
-        transform: none;
+      &:focus {
+        box-shadow: 0 0 0 4px rgba($primary, 0.25);
       }
-    }
 
-    .social-btn {
-      border-color: $gray-200;
-      color: $gray-700;
-      font-weight: 500;
-
-      &:hover {
-        background-color: $gray-50;
-        border-color: $gray-300;
-        color: $gray-900;
+      &:active {
+        transform: translateY(0);
       }
     }
 
+    // Divider
     .divider {
       display: flex;
       align-items: center;
       text-align: center;
-      color: $gray-400;
-      font-size: 0.875rem;
+      color: $gray-500;
+      font-size: 0.85rem;
 
       &::before,
       &::after {
@@ -159,15 +234,19 @@
       }
     }
 
-    .forgot-password-link,
-    .sign-up-link {
-      color: $primary;
-      text-decoration: none;
-      transition: color 0.2s;
+    // Social Buttons
+    .social-btn {
+      border-color: $gray-300;
+      color: $gray-700;
+      font-weight: 500;
+      font-size: 0.95rem;
+      height: 44px;
+      transition: all 0.2s ease;
 
       &:hover {
-        color: $accent;
-        text-decoration: underline;
+        background-color: $gray-50;
+        border-color: $gray-400;
+        color: $black;
       }
     }
   }
@@ -176,15 +255,95 @@
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translate3d(0, 20px, 0);
+    transform: translateY(20px);
   }
 
   to {
     opacity: 1;
-    transform: translate3d(0, 0, 0);
+    transform: translateY(0);
   }
 }
 
-.animate-fade-in-up {
-  animation: fadeInUp 0.6s ease-out forwards;
+@media (prefers-color-scheme: dark) {
+  .sign-in-page {
+    background-color: $gray-900;
+
+    .sign-in-form-wrapper {
+      background-color: $gray-900;
+
+      .brand-logo .brand-text {
+        color: $white;
+      }
+
+      h2 {
+        color: $white;
+      }
+
+      p.text-muted {
+        color: $gray-400 !important;
+      }
+
+      .form-label {
+        color: $gray-300;
+      }
+
+      .form-control {
+        background-color: $gray-800;
+        border-color: $gray-700;
+        color: $white;
+
+        &:focus {
+          background-color: $gray-800;
+          border-color: $primary;
+        }
+
+        &::placeholder {
+          color: $gray-500;
+        }
+      }
+
+      .input-group-icon .icon,
+      .input-group-icon .password-toggle {
+        color: $gray-500;
+      }
+
+      .form-check-label {
+        color: $gray-300;
+      }
+
+      .text-muted {
+        color: $gray-400 !important;
+      }
+
+      .forgot-password-link,
+      .sign-up-link {
+        color: $white;
+
+        &:hover {
+          color: $accent;
+        }
+      }
+
+      .divider {
+        color: $gray-500;
+
+        &::before,
+        &::after {
+          border-color: $gray-700;
+        }
+      }
+
+      .social-btn {
+        border-color: $gray-600;
+        color: $gray-300;
+        background-color: transparent;
+
+        &:hover {
+          background-color: $gray-800;
+          border-color: $gray-500;
+          color: $white;
+        }
+      }
+    }
+  }
 }

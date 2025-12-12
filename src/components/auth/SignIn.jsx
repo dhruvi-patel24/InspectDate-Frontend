@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, Form, Button, Alert } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
-import { Mail, Lock, Eye, EyeOff } from 'lucide-react';
-import api from '../../api';
+import { Mail, Lock, Eye, EyeOff, Chrome } from 'lucide-react';
+import axios from 'axios';
 import { ROUTES } from '../../routes/routePaths';
+import api from '../../api';
 import './SignIn.scss';
 
 const SignIn = () => {
@@ -20,12 +21,15 @@ const SignIn = () => {
     setLoading(true);
 
     try {
-      const response = await api.post('/users/sign_in', {
-        user: {
-          email: email,
-          password: password,
-        },
-      });
+      const response = await axios.post(
+        import.meta.env.VITE_API_BASE_URL + '/users/sign_in',
+        {
+          user: {
+            email: email,
+            password: password,
+          },
+        }
+      );
 
       if (response.data.success) {
         navigate(ROUTES.dashboard);
@@ -34,7 +38,7 @@ const SignIn = () => {
       }
     } catch (err) {
       console.error('Login error:', err);
-      if (err.response?.data?.errors) {
+      if (err.response && err.response.data && err.response.data.errors) {
         setError(err.response.data.errors);
       } else {
         setError('An error occurred. Please try again later.');
@@ -106,7 +110,10 @@ const SignIn = () => {
             lg={6}
             className="d-flex align-items-center justify-content-center bg-white"
           >
-            <div className="sign-in-form-wrapper p-4 p-sm-5 w-100 animate-fade-in-up">
+            <div
+              className="sign-in-form-wrapper p-4 p-sm-5 w-100 animate-fade-in-up"
+              style={{ maxWidth: '550px' }}
+            >
               <div className="text-center mb-5">
                 <div className="brand-logo d-inline-flex align-items-center gap-2 justify-content-center">
                   <div className="logo-icon">
@@ -150,7 +157,10 @@ const SignIn = () => {
               )}
 
               <Form onSubmit={handleSubmit}>
-                <Form.Group className="mb-4 position-relative" controlId="formBasicEmail">
+                <Form.Group
+                  className="mb-4 position-relative"
+                  controlId="formBasicEmail"
+                >
                   <Form.Label>Email address</Form.Label>
                   <div className="input-group-icon">
                     <Mail size={20} className="icon text-muted" />
@@ -165,7 +175,10 @@ const SignIn = () => {
                   </div>
                 </Form.Group>
 
-                <Form.Group className="mb-4 position-relative" controlId="formBasicPassword">
+                <Form.Group
+                  className="mb-4 position-relative"
+                  controlId="formBasicPassword"
+                >
                   <Form.Label>Password</Form.Label>
                   <div className="input-group-icon">
                     <Lock size={20} className="icon text-muted" />
