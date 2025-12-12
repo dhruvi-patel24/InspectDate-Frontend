@@ -1,0 +1,137 @@
+@import '../../styles/variables.scss';
+@import '../../styles/responsive.scss';
+
+// ============================================
+// Features Section Styles
+// ============================================
+
+.features-section {
+  @include section-padding;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  background-color: $white;
+
+  @media (min-width: 1024px) {
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+  }
+
+  .section-header {
+    max-width: 48rem;
+    margin: 0 auto;
+
+    .section-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      background-color: rgba($accent, 0.1);
+      color: $accent;
+      border-radius: 9999px;
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+
+    .section-title {
+      font-size: 2.25rem;
+      font-weight: 700;
+      color: $primary;
+      line-height: 1.2;
+
+      @media (min-width: 1024px) {
+        font-size: 2.75rem;
+      }
+    }
+
+    .section-description {
+      font-size: 1.125rem;
+      color: $gray-600;
+      line-height: 1.7;
+    }
+  }
+}
+
+.feature-card {
+  text-align: center;
+  padding: 2rem 1.5rem;
+  background-color: $white;
+  border-radius: 0.75rem;
+  transition: all 0.3s ease;
+  height: 100%;
+  border: 1px solid transparent;
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border-color: $accent;
+  }
+
+  .feature-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba($accent, 0.1) 0%, rgba($accent, 0.05) 100%);
+    color: $accent;
+    transition: all 0.3s ease;
+
+    svg {
+      stroke-width: 1.5;
+    }
+  }
+
+  &:hover .feature-icon {
+    background: linear-gradient(135deg, $accent 0%, $accent-hover 100%);
+    color: $white;
+    transform: scale(1.1);
+  }
+
+  .feature-title {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: $primary;
+    margin-bottom: 1rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
+  .feature-description {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: $gray-600;
+    margin-bottom: 0;
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 767px) {
+  .features-section {
+    padding: 3rem 0;
+  }
+
+  .feature-card {
+    padding: 1.5rem 1rem;
+
+    .feature-icon {
+      width: 60px;
+      height: 60px;
+      margin-bottom: 1rem;
+
+      svg {
+        width: 30px;
+        height: 30px;
+      }
+    }
+
+    .feature-title {
+      font-size: 0.8125rem;
+    }
+
+    .feature-description {
+      font-size: 0.875rem;
+    }
+  }
+}

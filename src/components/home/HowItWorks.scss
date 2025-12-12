@@ -1,0 +1,126 @@
+@import '../../styles/variables.scss';
+@import '../../styles/responsive.scss';
+
+// ============================================
+// How It Works Section Styles
+// ============================================
+
+.how-it-works-section {
+  @include section-padding;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  background-color: $gray-50;
+
+  @media (min-width: 1024px) {
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+  }
+
+  .section-header {
+    max-width: 48rem;
+    margin: 0 auto;
+
+    .section-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      background-color: rgba($accent, 0.1);
+      color: $accent;
+      border-radius: 9999px;
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+
+    .section-title {
+      font-size: 2.25rem;
+      font-weight: 700;
+      color: $primary;
+      line-height: 1.2;
+
+      @media (min-width: 1024px) {
+        font-size: 2.75rem;
+      }
+    }
+
+    .section-description {
+      font-size: 1.125rem;
+      color: $gray-600;
+      line-height: 1.7;
+    }
+  }
+
+  .step-card {
+    position: relative;
+    background-color: $white;
+    border-radius: 1rem;
+    padding: 2rem;
+    height: 100%;
+    border: 1px solid $gray-200;
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      border-color: $accent;
+    }
+
+    .step-number {
+      font-size: 3rem;
+      font-weight: 700;
+      color: rgba($accent, 0.2);
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+
+    .step-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: $primary;
+      margin-bottom: 0.75rem;
+    }
+
+    .step-description {
+      font-size: 0.9375rem;
+      color: $gray-600;
+      line-height: 1.6;
+      margin-bottom: 0;
+    }
+
+    .step-arrow {
+      position: absolute;
+      top: 50%;
+      right: -1.5rem;
+      transform: translateY(-50%);
+      color: $accent;
+      display: none;
+
+      @media (min-width: 1024px) {
+        display: block;
+      }
+    }
+  }
+
+  .btn-primary-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.875rem 2rem;
+    background-color: $primary;
+    color: $white;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: lighten($primary, 10%);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba($primary, 0.3);
+      color: $white;
+    }
+  }
+}

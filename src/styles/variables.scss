@@ -1,0 +1,162 @@
+// ============================================
+// InspectDate Theme Colors
+// ============================================
+
+// Brand Colors
+$primary: #1a1a1a; // Dark primary (logo, buttons)
+$primary-hover: #2d2d2d; // Darker on hover
+$accent: #10b981; // Green accent (brand highlight)
+$accent-hover: #059669; // Darker green on hover
+$accent-light: #d1fae5; // Light green background
+
+// Neutral Colors
+$white: #ffffff;
+$black: #000000;
+$gray-50: #f9fafb; // Lightest gray (backgrounds)
+$gray-100: #f3f4f6;
+$gray-200: #e5e7eb;
+$gray-300: #d1d5db;
+$gray-400: #9ca3af;
+$gray-500: #6b7280; // Medium gray (text)
+$gray-600: #4b5563;
+$gray-700: #374151;
+$gray-800: #1f2937;
+$gray-900: #111827; // Darkest gray
+
+// Semantic Colors
+$success: #10b981; // Green
+$success-light: #d1fae5;
+$success-dark: #059669;
+
+$danger: #ef4444; // Red
+$danger-light: #fee2e2;
+$danger-dark: #dc2626;
+
+$warning: #f59e0b; // Orange/Yellow
+$warning-light: #fef3c7;
+$warning-dark: #d97706;
+
+$info: #3b82f6; // Blue
+$info-light: #dbeafe;
+$info-dark: #2563eb;
+
+// Legacy Colors (for backward compatibility)
+$blue: #0F5E9F;
+$sky-blue: #C3DCEB;
+$red-1: #ef5350;
+$red-2: #d32f2f;
+$red-3: #f44336;
+$yellow: #FFFF6E;
+$dark-green: #66bb6a;
+$dark-green-2: #4aab3d;
+$light-green: #d1e7dd;
+$dark-pink: #6b484b;
+$light-pink: #f8d7da;
+$light-grey: #f2f4f8;
+$light-grey-2: #e2e4e8;
+$light-grey-3: #d2d4d8;
+$light-grey-4: #c2c4c8;
+$light-grey-5: #c1c1c1;
+$dark-grey-1: #424448;
+$dark-grey-2: #999;
+$dark-grey-3: #828488;
+$dark-grey-4: #222;
+$dark-grey-5: #6c757d;
+$table-border: #dee2e6;
+$green: #32C36C;
+$light-green-sidebar: #46e284;
+$light-green-2: #97dab1;
+
+// Website Front (Legacy)
+$light-blue: #D3ECFF;
+$web-primary: #023067;
+$web-light-blue: #96AEBE;
+$section-bg: #f1f1f1;
+$shape-filter-bg: #727476;
+$button-bg-hover: rgba(32, 33, 36, 0.059);
+$border-color: #e5e5ea;
+
+// Other
+$transparent-bg: transparent;
+
+// ============================================
+// Typography
+// ============================================
+
+$fonts: 'Nunito',
+  sans-serif;
+
+$transparent-bg: transparent;
+$border-color: #E2E4E6;
+
+
+//Fonts
+@mixin light-font {
+  font-family: $fonts;
+  font-weight: 300
+}
+
+@mixin regular-font {
+  font-family: $fonts;
+  font-weight: 400
+}
+
+@mixin medium-font {
+  font-family: $fonts;
+  font-weight: 500
+}
+
+@mixin semibold-font {
+  font-family: $fonts;
+  font-weight: 600
+}
+
+@mixin bold-font {
+  font-family: $fonts;
+  font-weight: 700
+}
+
+@mixin sidebar-width {
+  width: 230px;
+  min-width: 230px
+}
+
+@mixin open-sidebar {
+  left: 230px
+}
+
+@mixin collapsed-sidebar {
+  left: 80px
+}
+
+@mixin open-sidebar-pad {
+  padding: 90px 15px 30px 245px;
+}
+
+@mixin collapsed-sidebar-pad {
+  padding: 90px 15px 30px 95px;
+}
+
+@mixin nav-animation {
+  transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s
+}
+
+@mixin table-row-animation {
+  transition: box-shadow 0.15s;
+  -webkit-transition: -webkit-box-shadow 0.15s;
+  -moz-transition: -moz-box-shadow 0.15s;
+  -ms-transition: -ms-box-shadow 0.15s;
+  -o-transition: -o-box-shadow 0.15s
+}
+
+@mixin table-row-shadow {
+  box-shadow: 3px 3px 12px rgba(0, 0, 0, .09);
+  -webkit-box-shadow: 3px 3px 12px rgba(0, 0, 0, .09);
+  -moz-box-shadow: 3px 3px 12px rgba(0, 0, 0, .09);
+  -ms-box-shadow: 3px 3px 12px rgba(0, 0, 0, .09);
+  -o-box-shadow: 3px 3px 12px rgba(0, 0, 0, .09)
+}
