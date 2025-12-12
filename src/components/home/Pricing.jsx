@@ -1,4 +1,4 @@
-import { Check } from 'lucide-react';
+import { Check, CheckCircle } from 'lucide-react';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import "./Pricing.scss";
 
@@ -56,8 +56,12 @@ export default function Pricing() {
       <Container>
         {/* Section Header */}
         <div className="section-header text-center mb-5">
+          <div className="section-badge mb-3">
+            <CheckCircle size={16} />
+            <span>Flexible Plans</span>
+          </div>
           <h2 className="section-title mb-3">
-            Simple, transparent pricing
+            SIMPLE PRICING
           </h2>
           <p className="section-description">
             Choose the plan that fits your needs. All plans include a 30-day free trial.

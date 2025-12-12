@@ -1,4 +1,4 @@
-import { Star, Quote } from 'lucide-react';
+import { Star, Quote, CheckCircle } from 'lucide-react';
 import { Container, Row, Col } from 'react-bootstrap';
 import "./Reviews.scss";
 
@@ -35,8 +35,12 @@ export default function Reviews() {
       <Container>
         {/* Section Header */}
         <div className="section-header text-center mb-5">
+          <div className="section-badge mb-3">
+            <CheckCircle size={16} />
+            <span>Testimonials</span>
+          </div>
           <h2 className="section-title mb-3">
-            User Reviews
+            CLIENT REVIEWS
           </h2>
           <p className="section-description">
             See what our customers have to say about InspectDate

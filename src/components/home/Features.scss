@@ -15,6 +15,40 @@
     padding-top: 7rem;
     padding-bottom: 7rem;
   }
+
+  .section-header {
+    max-width: 48rem;
+    margin: 0 auto;
+
+    .section-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      background-color: rgba($accent, 0.1);
+      color: $accent;
+      border-radius: 9999px;
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+
+    .section-title {
+      font-size: 2.25rem;
+      font-weight: 700;
+      color: $primary;
+      line-height: 1.2;
+
+      @media (min-width: 1024px) {
+        font-size: 2.75rem;
+      }
+    }
+
+    .section-description {
+      font-size: 1.125rem;
+      color: $gray-600;
+      line-height: 1.7;
+    }
+  }
 }
 
 .feature-card {

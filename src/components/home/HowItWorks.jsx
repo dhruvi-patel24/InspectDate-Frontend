@@ -36,7 +36,7 @@ export default function HowItWorks() {
             <span>Simple Process</span>
           </div>
           <h2 className="section-title mb-3">
-            Keeping things organized and efficient has never been so easy
+            HOW IT WORKS
           </h2>
           <p className="section-description">
             Our streamlined workflow ensures every inspection is completed on time, every time

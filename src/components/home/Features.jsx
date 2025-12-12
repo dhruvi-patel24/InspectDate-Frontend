@@ -1,4 +1,4 @@
-import { Mail, Shield, Users, FileText } from 'lucide-react';
+import { Mail, Shield, Users, FileText, CheckCircle } from 'lucide-react';
 import { Container, Row, Col } from 'react-bootstrap';
 import "./Features.scss";
 
@@ -29,6 +29,20 @@ export default function Features() {
   return (
     <section className="features-section" id="features">
       <Container>
+        {/* Section Header */}
+        <div className="section-header text-center mb-5">
+          <div className="section-badge mb-3">
+            <CheckCircle size={16} />
+            <span>Why Choose Us</span>
+          </div>
+          <h2 className="section-title mb-3">
+            KEY FEATURES
+          </h2>
+          <p className="section-description">
+            Everything you need to manage your inspections efficiently
+          </p>
+        </div>
+
         <Row className="g-4">
           {features.map((feature, index) => (
             <Col key={index} sm={6} lg={3}>
