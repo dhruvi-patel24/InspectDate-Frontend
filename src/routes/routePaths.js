@@ -1,0 +1,19 @@
+export const ROUTES = {
+  sign_in: "/sign_in",
+  privacy: "/privacy",
+  dashboard: "/dashboard",
+  calendar: "/calendar",
+  projects: "/projects",
+  project_transfers: "/project-transfers",
+  ebudget_templates: "/ebudget-templates",
+  inspection_requests: "/inspection-requests",
+  lender: "/lender",
+  lending_pros: "/lending-pros",
+  company: "/company",
+  inspectors: "/inspectors",
+  pending_invitations: "/pending-invitations",
+  my_org: "/my-org",
+  my_profile: "/my-profile",
+  contact_us: "/contact-us",
+  billing: "/billing"
+};
