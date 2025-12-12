@@ -1,0 +1,136 @@
+@import '../../styles/variables.scss';
+
+.modern-calendar {
+  background: $white;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  border: 1px solid $gray-200;
+
+  // Header Toolbar
+  .fc-header-toolbar {
+    margin-bottom: 2rem !important;
+
+    .fc-toolbar-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: $gray-900;
+    }
+
+    .btn {
+      border: none;
+      box-shadow: none;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+
+      &.btn-primary {
+        background-color: $primary;
+        color: $white;
+
+        &:hover {
+          background-color: $primary-hover;
+        }
+
+        &:active,
+        &.active {
+          background-color: $primary-hover !important;
+          border-color: transparent !important;
+        }
+      }
+
+      &.btn-outline-secondary {
+        color: $gray-600;
+        background-color: $gray-100;
+        border: 1px solid transparent;
+
+        &:hover {
+          background-color: $gray-200;
+          color: $gray-900;
+        }
+
+        &.active {
+          background-color: $gray-900;
+          color: $white;
+        }
+      }
+    }
+  }
+
+  // Calendar Grid
+  .fc-theme-bootstrap5 {
+    .fc-scrollgrid {
+      border: none;
+    }
+
+    td,
+    th {
+      border-color: $gray-200;
+    }
+
+    .fc-col-header-cell {
+      background-color: $gray-50;
+      padding: 1rem 0;
+      border-bottom: 1px solid $gray-200;
+
+      .fc-col-header-cell-cushion {
+        color: $gray-500;
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 0.75rem;
+        letter-spacing: 0.05em;
+        text-decoration: none;
+      }
+    }
+
+    .fc-daygrid-day-number {
+      color: $gray-700;
+      font-weight: 500;
+      padding: 0.5rem;
+      text-decoration: none;
+    }
+
+    .fc-day-today {
+      background-color: rgba($accent, 0.05) !important;
+
+      .fc-daygrid-day-number {
+        color: $accent;
+        font-weight: 700;
+      }
+    }
+  }
+
+  // Events
+  .fc-event {
+    border: none;
+    border-radius: 4px;
+    padding: 2px 4px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: transform 0.1s ease;
+
+    &:hover {
+      transform: translateY(-1px);
+    }
+
+    &.fc-daygrid-event {
+      background-color: $accent;
+      color: $white;
+
+      .fc-event-main {
+        color: $white;
+      }
+    }
+
+    &.fc-timegrid-event {
+      background-color: rgba($accent, 0.15);
+      border-left: 3px solid $accent;
+      color: $gray-900;
+
+      .fc-event-main {
+        color: $gray-900;
+      }
+    }
+  }
+}
