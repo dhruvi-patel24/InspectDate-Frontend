@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Mail, Lock, Eye, EyeOff, Chrome } from 'lucide-react';
 import axios from 'axios';
 import { ROUTES } from '../../routes/routePaths';
+import api from '../../api';
 import './SignIn.scss';
 
 const SignIn = () => {
