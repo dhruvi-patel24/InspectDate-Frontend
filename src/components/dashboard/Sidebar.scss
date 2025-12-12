@@ -1,0 +1,98 @@
+@import '../../styles/variables.scss';
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 100;
+  background-color: $gray-900;
+  border-right-color: $gray-800 !important;
+  transition: all 0.3s ease;
+  width: 280px;
+  height: 100vh;
+
+  .sidebar-scroll {
+    flex: 1;
+    overflow-y: auto;
+    margin-right: -10px;
+    padding-right: 10px;
+
+    // Scrollbar styling
+    &::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: $gray-700;
+      border-radius: 2px;
+    }
+  }
+
+  .logo-icon {
+    color: $accent;
+  }
+
+  .nav-link {
+    color: $gray-400;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    transition: all 0.2s ease;
+    font-weight: 500;
+    font-size: 0.95rem;
+
+    &:hover {
+      background-color: rgba($white, 0.05);
+      color: $white;
+    }
+
+    &.active {
+      background-color: rgba($accent, 0.1);
+      color: $accent;
+      font-weight: 600;
+
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        width: 4px;
+        height: 24px;
+        background-color: $accent;
+        border-radius: 0 4px 4px 0;
+      }
+    }
+  }
+
+  .border-secondary {
+    border-color: $gray-800 !important;
+  }
+
+  .avatar-placeholder {
+    background-color: $gray-800;
+    color: $accent;
+    border: 1px solid $gray-700;
+  }
+}
+
+// Adjust main content to account for sidebar width
+.dashboard-main {
+  margin-left: 280px;
+  width: calc(100% - 280px);
+  min-height: 100vh;
+  background-color: $gray-50;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    transform: translateX(-100%);
+  }
+
+  .dashboard-main {
+    margin-left: 0;
+    width: 100%;
+  }
+}
