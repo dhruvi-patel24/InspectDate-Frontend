@@ -15,5 +15,7 @@ export const ROUTES = {
   my_org: "/my-org",
   my_profile: "/my-profile",
   contact_us: "/contact-us",
-  billing: "/billing"
+  billing: "/billing",
+  forgot_password: "/forgot-password",
+  reset_password: "/reset-password"
 };

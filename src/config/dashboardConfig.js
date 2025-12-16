@@ -1,4 +1,5 @@
 import {
+  LayoutDashboard,
   Calendar,
   FolderKanban,
   ArrowRightLeft,
@@ -17,6 +18,7 @@ import { ROUTES } from '../routes/routePaths';
 
 export const dashboardConfig = {
   menuItems: [
+    { label: 'Dashboard', icon: LayoutDashboard, path: ROUTES.dashboard },
     { label: 'Calendar', icon: Calendar, path: ROUTES.calendar },
     { label: 'Projects', icon: FolderKanban, path: ROUTES.projects },
     { label: 'Project Transfers', icon: ArrowRightLeft, path: ROUTES.project_transfers },
