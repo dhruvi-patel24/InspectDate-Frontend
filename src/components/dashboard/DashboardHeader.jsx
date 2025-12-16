@@ -11,7 +11,7 @@ const DashboardHeader = () => {
   );
 
   // Default title if not found (e.g., root dashboard)
-  const title = currentItem ? currentItem.label : 'Dashboard';
+  const title = currentItem ? currentItem.label : 'Page Under Construction';
 
   return (
     <div className="dashboard-header d-flex justify-content-between align-items-center mb-4 pb-3 border-bottom">
