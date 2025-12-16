@@ -9,7 +9,7 @@ const DashboardLayout = () => {
     <div className="d-flex">
       <Sidebar />
       <div className="dashboard-main p-4">
-        <DashboardHeader />
+        {/* <DashboardHeader /> */}
         <Outlet />
       </div>
     </div>

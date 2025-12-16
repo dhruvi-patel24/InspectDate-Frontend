@@ -13,7 +13,7 @@ const Sidebar = () => {
     <div className="sidebar d-flex flex-column flex-shrink-0 p-3 border-end border-secondary">
       <Link
         to="/"
-        className="logo d-flex align-items-center mb-4 mb-md-0 me-md-auto text-decoration-none"
+        className="d-flex id-logo align-items-center mb-4 mb-md-0 me-md-auto text-decoration-none"
       >
         <div className="logo-icon me-2">
           <svg
