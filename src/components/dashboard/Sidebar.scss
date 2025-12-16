@@ -11,7 +11,9 @@
   transition: all 0.3s ease;
   width: 280px;
   height: 100vh;
-
+  .logo {
+      padding-bottom: inherit;
+    }
   .sidebar-scroll {
     flex: 1;
     overflow-y: auto;

@@ -24,7 +24,7 @@ export const dashboardConfig = {
     { label: 'Project Transfers', icon: ArrowRightLeft, path: ROUTES.project_transfers },
     { label: 'E-Budget Templates', icon: FileSpreadsheet, path: ROUTES.ebudget_templates },
     { label: 'Inspection Requests', icon: ClipboardList, path: ROUTES.inspection_requests },
-    { label: 'Lender', icon: Landmark, path: ROUTES.lender },
+    { label: 'Banks', icon: Landmark, path: ROUTES.banks },
     { label: 'Lending Pros', icon: Briefcase, path: ROUTES.lending_pros },
     { label: 'Company', icon: Building2, path: ROUTES.company },
     { label: 'Inspectors', icon: Users, path: ROUTES.inspectors },

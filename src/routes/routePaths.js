@@ -7,7 +7,7 @@ export const ROUTES = {
   project_transfers: "/project-transfers",
   ebudget_templates: "/ebudget-templates",
   inspection_requests: "/inspection-requests",
-  lender: "/lender",
+  banks: "/banks",
   lending_pros: "/lending-pros",
   company: "/company",
   inspectors: "/inspectors",
