@@ -1,10 +1,11 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.scss'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from './components/home/home';
 import SignIn from './components/auth/SignIn';
+import ForgotPassword from './components/auth/ForgotPassword';
+import ResetPassword from './components/auth/ResetPassword';
+import PageUnderConstruction from './components/common/PageUnderConstruction';
 import DashboardLayout from './components/dashboard/DashboardLayout';
 import Calendar from './components/dashboard/Calendar';
 import Projects from './components/dashboard/Projects';
@@ -17,6 +18,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path={ROUTES.sign_in} element={<SignIn />} />
+          <Route path={ROUTES.forgot_password} element={<ForgotPassword />} />
+          <Route path={ROUTES.reset_password} element={<ResetPassword />} />
 
           {/* Dashboard Routes */}
           <Route element={<DashboardLayout />}>
@@ -24,7 +27,7 @@ function App() {
             <Route path={ROUTES.calendar} element={<Calendar />} />
             <Route path={ROUTES.projects} element={<Projects />} />
             {/* Add other routes as placeholders for now */}
-            <Route path="*" element={<div>Page Under Construction</div>} />
+            <Route path="*" element={<PageUnderConstruction />} />
           </Route>
         </Routes>
       </div>

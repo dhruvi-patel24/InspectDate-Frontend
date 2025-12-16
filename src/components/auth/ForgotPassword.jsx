@@ -1,46 +1,50 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, Form, Button, Alert } from 'react-bootstrap';
-import { Link, useNavigate } from 'react-router-dom';
-import { Mail, Lock, Eye, EyeOff, Chrome } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Mail, ArrowLeft, CheckCircle } from 'lucide-react';
 import axios from 'axios';
 import { ROUTES } from '../../routes/routePaths';
-import api from '../../api';
-import './SignIn.scss';
+import './ForgotPassword.scss';
 
-const SignIn = () => {
+const ForgotPassword = () => {
   const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
+  const [success, setSuccess] = useState('');
   const [loading, setLoading] = useState(false);
-  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
+    setSuccess('');
     setLoading(true);
 
     try {
+      // Assuming Devise standard password reset endpoint
       const response = await axios.post(
-        import.meta.env.VITE_API_BASE_URL + '/users/sign_in',
+        import.meta.env.VITE_API_BASE_URL + '/users/password',
         {
           user: {
             email: email,
-            password: password,
           },
         }
       );
 
-      if (response.data.success) {
-        navigate(ROUTES.dashboard);
+      if (response.status === 200 || response.status === 201) {
+        setSuccess('If an account exists for ' + email + ', you will receive an email with instructions on how to reset your password.');
+        setEmail('');
       } else {
-        setError(response.data.errors || 'Login failed. Please try again.');
+        setError('Something went wrong. Please try again.');
       }
     } catch (err) {
-      console.error('Login error:', err);
+      console.error('Password reset error:', err);
       if (err.response && err.response.data && err.response.data.errors) {
-        setError(err.response.data.errors);
+        // Devise usually returns errors array or object
+        const errors = err.response.data.errors;
+        setError(Array.isArray(errors) ? errors.join(', ') : errors);
       } else {
+        // For security reasons, sometimes it's better not to reveal if email exists or not, 
+        // but for UX we often show a generic message or the success message anyway.
+        // However, if it's a 404 or 422, we might want to show a generic error.
         setError('An error occurred. Please try again later.');
       }
     } finally {
@@ -49,7 +53,7 @@ const SignIn = () => {
   };
 
   return (
-    <div className="sign-in-page">
+    <div className="forgot-password-page">
       <Container fluid className="p-0 min-vh-100 overflow-hidden">
         <Row className="g-0 min-vh-100">
           {/* Left Side */}
@@ -83,7 +87,7 @@ const SignIn = () => {
                   </svg>
                 </div>
                 <h1 className="display-4 fw-bold mb-3">
-                  REQUESTED. SCHEDULED. DELIVERED.
+                  SECURE & RELIABLE
                 </h1>
               </div>
 
@@ -91,15 +95,15 @@ const SignIn = () => {
                 className="lead mb-5 text-white-50 mx-auto"
                 style={{ maxWidth: '400px' }}
               >
-                Transform the way you manage your construction loan portfolio
+                We keep your data safe. Recover your account access securely.
               </p>
 
               <div className="d-flex gap-3 justify-content-center">
                 <div className="feature-badge">
-                  <span className="check-icon">✓</span> Real-time Updates
+                  <span className="check-icon">✓</span> Encrypted Data
                 </div>
                 <div className="feature-badge">
-                  <span className="check-icon">✓</span> Smart Reporting
+                  <span className="check-icon">✓</span> 24/7 Support
                 </div>
               </div>
             </div>
@@ -111,7 +115,7 @@ const SignIn = () => {
             className="d-flex align-items-center justify-content-center bg-white"
           >
             <div
-              className="sign-in-form-wrapper p-4 p-sm-5 w-100 animate-fade-in-up"
+              className="auth-form-wrapper p-4 p-sm-5 w-100 animate-fade-in-up"
               style={{ maxWidth: '550px' }}
             >
               <div className="text-center mb-5">
@@ -144,15 +148,22 @@ const SignIn = () => {
               </div>
 
               <div className="mb-5">
-                <h2 className="fw-bold mb-2 h3">Welcome back! 👋</h2>
+                <h2 className="fw-bold mb-2 h3">Forgot Password? 🔒</h2>
                 <p className="text-muted">
-                  Enter your credentials to access your inspection dashboard.
+                  Enter your email and we'll send you instructions to reset your password.
                 </p>
               </div>
 
               {error && (
                 <Alert variant="danger" className="mb-4">
                   {error}
+                </Alert>
+              )}
+
+              {success && (
+                <Alert variant="success" className="mb-4 d-flex align-items-center gap-2">
+                  <CheckCircle size={20} />
+                  <div>{success}</div>
                 </Alert>
               )}
 
@@ -175,58 +186,19 @@ const SignIn = () => {
                   </div>
                 </Form.Group>
 
-                <Form.Group
-                  className="mb-4 position-relative"
-                  controlId="formBasicPassword"
-                >
-                  <Form.Label>Password</Form.Label>
-                  <div className="input-group-icon">
-                    <Lock size={20} className="icon text-muted" />
-                    <Form.Control
-                      type={showPassword ? 'text' : 'password'}
-                      placeholder="Enter your password"
-                      value={password}
-                      onChange={(e) => setPassword(e.target.value)}
-                      required
-                      className="py-2 ps-5 pe-5"
-                    />
-                    <div
-                      className="password-toggle"
-                      onClick={() => setShowPassword(!showPassword)}
-                    >
-                      {showPassword ? (
-                        <EyeOff size={20} className="text-muted" />
-                      ) : (
-                        <Eye size={20} className="text-muted" />
-                      )}
-                    </div>
-                  </div>
-                </Form.Group>
-
-                <div className="d-flex justify-content-between align-items-center mb-4">
-                  <Form.Check
-                    type="checkbox"
-                    label="Remember for 30 days"
-                    id="remember-me"
-                  />
-                  <Link to={ROUTES.forgot_password} className="forgot-password-link">
-                    Forgot Password?
-                  </Link>
-                </div>
-
                 <Button
                   variant="primary"
                   type="submit"
-                  className="w-100 mb-4 sign-in-btn py-2"
+                  className="w-100 mb-4 submit-btn py-2"
                   disabled={loading}
                 >
-                  {loading ? 'Signing In...' : 'Sign In'}
+                  {loading ? 'Sending Link...' : 'Send Reset Link'}
                 </Button>
 
                 <div className="text-center">
-                  <span className="text-muted">Don't have an account? </span>
-                  <Link to="/signup" className="sign-up-link fw-semibold">
-                    Create an account
+                  <Link to={ROUTES.sign_in} className="back-to-login-link fw-semibold">
+                    <ArrowLeft size={16} />
+                    Back to Sign In
                   </Link>
                 </div>
               </Form>
@@ -238,4 +210,4 @@ const SignIn = () => {
   );
 };
 
-export default SignIn;
+export default ForgotPassword;
