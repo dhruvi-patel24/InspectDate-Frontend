@@ -1,0 +1,71 @@
+@import '../../styles/variables.scss';
+
+.page-under-construction {
+  background-color: $gray-50;
+  min-height: 70vh; // Not full viewport to fit nicely in dashboard
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .icon-wrapper {
+    width: 100px;
+    height: 100px;
+    background-color: rgba($accent, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $accent;
+    margin: 0 auto;
+
+    svg {
+      animation: swing 2s ease-in-out infinite;
+    }
+  }
+
+  h1 {
+    color: $primary;
+    font-size: 2.5rem;
+  }
+}
+
+@keyframes swing {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  20% {
+    transform: rotate(15deg);
+  }
+
+  40% {
+    transform: rotate(-10deg);
+  }
+
+  60% {
+    transform: rotate(5deg);
+  }
+
+  80% {
+    transform: rotate(-5deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .page-under-construction {
+    background-color: $gray-800; // Slightly lighter than main dark bg
+
+    h1 {
+      color: $white;
+    }
+
+    p.text-muted {
+      color: $gray-400 !important;
+    }
+  }
+}
